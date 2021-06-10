@@ -1,0 +1,87 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<style>
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: blue;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: pink;
+}
+
+div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+h1{
+  font-size:35px;
+  color:blue;
+}
+</style>
+<body>
+
+<h1><center>Enter book Details</center></h1>
+
+<div>
+  <form action="storebook" method="POST">{% csrf_token %}
+    
+    <label for="bname">Book Name</label>
+    <input type="text" id="bname" name="b_name">
+
+    <label for="auth">Category</label>
+    <select name="b_category">
+      <option>romentic</option>
+      <option>horror</option>
+      <option>adventure</option>
+      <option>comedy</option>
+      <option>comic</option>
+      <option>engineering</option>
+      <option>mythology</option>
+      <option>history</option>
+      <option>bollywood</option>
+      <option>hollywood</option>
+      <option>autobiograpphy</option>
+    </select>
+
+    <label for="auth">Author</label>
+    <input type="text" id="auth" name="b_author">
+
+    <label for="ed">Edition</label>
+    <input type="text" id="ed" name="b_edition">
+
+    <label for="ed">User</label>
+    <input type="text" id="user" name="b_user">    
+
+    <label for="price">Price</label>
+    <input type="text" id="price" name="b_price">
+
+    <label for="price">Images</label><br><br>
+    <input type="file" name="b_image" onchange="previewFile()"><br>
+    <img src="../../bookimages/" height="300" ><br>
+
+    <input type="submit" value="Add">
+  </form>
+</div>
+  <br>
+  <a href="seller.html"><h3><---BACK</h3></a>
+</body>
+</html>

@@ -81,7 +81,7 @@
                                  <li><a href="contact">Contact us</a></li>
                                  <li><a href="logout">Logout</a></li>
                                  <li class="mean-last"> <a href="#"><img src="{% static 'images/search_icon.png' %}" alt="#" /></a> </li>
-                                 <li class="mean-last"> <a href="profile.html"><img src="{% static 'images/top-icon.png' %}" alt="#" /></a> </li>
+                                 <li class="mean-last"> <a href='profile.html'><img src="{% static 'images/top-icon.png' %}" alt="#" /></a> </li>
                               </ul>
                            </nav>
                         </div>
@@ -96,10 +96,62 @@
 <body>
 <br><br><br><br><br><br><br>
 <h2>You can search for book here....</h2>
-
-<form>
+<form action="search">
   <input type="text" name="search" placeholder="Search..">
 </form>
+<section class="section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <div class="card">
+                    <div class="card-header">
+                        <h1 class="fw-bold"></h1>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Name</th>
+                                    <th>Category</th>
+                                    <th>Author</th>
+                                    <th>Price</th>
+                                    <th>Edition</th>
+                                    <th>Image</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                              {% for book in b %}
+                                    <tr>
+                                        <td>{{book.id}} </td>
+                                        <td>{{book.b_name}} </td>
+                                        <td>{{book.b_category}} </td>
+                                        <td>{{book.b_author}} </td>
+                                        <td>{{book.b_price}} </td>
+                                        <td>{{book.b_edition}} </td>
+                                        
+                                            <!--<td>
+                                                <img src="{{ book.b_image.url }}" alt="">
+                                            </td>-->
+                                        
+                                            <td>
+                                                <img src="{% static book.b_image %}" alt="" class="prod-size">
+                                            </td>
+                                        
+                                        <td>
+                                            <a href="cart" class="btn btn-danger badge">Add to cart</a>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <br><br><br><br><br><br><br><br><br><br><br><br>
 <footer>
          <div class="footer">

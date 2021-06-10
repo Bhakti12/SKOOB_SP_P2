@@ -52,11 +52,11 @@
                         <div class="limit-box">
                            <nav class="main-menu">
                               <ul class="menu-area-main">
-                                 <li class="active"> <a href="Home_seller.html">Home</a> </li>
+                                 <li class="active"> <a href="seller">Home</a> </li>
                                  <li><a href="cart">Cart</a></li>
                                  <li><a href="logout">Logout</a></li>
                                  <li class="mean-last"> <a href="#"><img src="{% static 'images/search_icon.png' %}" alt="#" /></a> </li>
-                                 <li class="mean-last"> <a href="profile.html"><img src="{% static 'images/top-icon.png' %}" alt="#" /></a> </li>
+                                 <li class="mean-last"> <a href='profile.html'><img src="{% static 'images/top-icon.png' %}" alt="#" /></a> </li>
                               </ul>
                            </nav>
                         </div>
@@ -68,9 +68,61 @@
          
          <!-- end header inner -->
       </header>
-</head>
+<body>
+<section class="section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <div class="card">
+                    <div class="card-header">
+                        <h1 class="fw-bold"></h1>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Name</th>
+                                    <th>Category</th>
+                                    <th>Author</th>
+                                    <th>Price</th>
+                                    <th>Edition</th>
+                                    <th>Image</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                              {% for book in b %}
+                                    <tr>
+                                        <td>{{book.id}} </td>
+                                        <td>{{book.b_name}} </td>
+                                        <td>{{book.b_category}} </td>
+                                        <td>{{book.b_author}} </td>
+                                        <td>{{book.b_price}} </td>
+                                        <td>{{book.b_edition}} </td>
+                                        
+                                            <!--<td>
+                                                <img src="{{ book.b_image.url }}" alt="">
+                                            </td>-->
+                                        
+                                            <td>
+                                                <img src="{% static book.b_image %}" alt="" class="prod-size">
+                                            </td>
+                                        
+                                        <td>
+                                            <a href="DeleteBook" class="btn btn-danger badge">Delete</a>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 	<br><br><br><br><br><br><br><br><br><br><br>
-	<right><a href="bookform"><input type="submit" name="add" class="button" value="Add book" /></a></right>
+	<center><a href="bookform"><input type="submit" name="add" class="button" value="Add book" /></a></center>
    <br><br><br><br><br><br><br><br><br><br><br>
 
 	<footer>
@@ -114,4 +166,5 @@
       <!-- sidebar -->
       <script src="{% static 'js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
       <script src="{% static 'js/custom.js' %}"></script>
+</body>
 </html>

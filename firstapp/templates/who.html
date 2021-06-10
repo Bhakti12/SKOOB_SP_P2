@@ -57,7 +57,7 @@
                                  Hello, {{ user.username|default:'Guest' }}!
                                  <li><a href="logout">Logout</a></li>
                                  <li class="mean-last"> <a href="#"><img src="{% static 'images/search_icon.png' %}" alt="#" /></a> </li>
-                                 <li class="mean-last"> <a href="who.html"><img src="{% static 'images/top-icon.png' %}" alt="#" /></a> </li>
+                                 <li class="mean-last"> <a href='profile.html'><img src="{% static 'images/top-icon.png' %}" alt="#" /></a> </li>
                               </ul>
                            </nav>
                         </div>
@@ -75,11 +75,11 @@
         
           <center><h1>Do you want to?</h1></center>
 
-          <a href='buyercrud/buyer'>
+          <a href='buyer'>
           <center><img src="{% static 'images/buyer.png' %}" width=300 height=300 style="vertical-align:middle;margin:0px 30px"></a>
 
 
-          <a href='sellercrud/seller'>
+          <a href='seller'>
           <img src="{% static 'images/seller.png' %}" width=300 height=300 style="vertical-align:middle;margin:0px 30px"> </center></a>
         <br><br><br>
       </body>

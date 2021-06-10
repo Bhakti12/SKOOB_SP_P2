@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'skoob.wsgi.application'
 DATABASES = {
 'default': {
 'ENGINE': 'django.db.backends.mysql',
-'NAME': 'pydb',
+'NAME': 'skoob',
 'USER': 'root',
 'PASSWORD': '',
 'HOST': 'localhost',
