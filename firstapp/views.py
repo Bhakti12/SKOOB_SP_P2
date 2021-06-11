@@ -104,7 +104,7 @@ def storebook(request):
         book.b_edition=request.POST['b_edition']
         book.b_image=request.POST['b_image']
         book.save()
-    return render(request,'index.html')
+    return render(request,'seller.html')
 
 @login_required(login_url='login')
 def seller(request):
@@ -124,9 +124,9 @@ def Home_seller(request):
     return render(request, 'Home_seller')
 
 @login_required(login_url='login')
-class Search(ListView):
+class search(ListView):
     model = books
-    template_name = 'search.html'
+    template_name = 'buyer.html'
 
     def get_queryset(self): # new
         query = self.request.GET.get('q')
@@ -170,21 +170,10 @@ def cart(request):
  #       return redirect('buyer')
 
 
-#def complete_order(request):
-#    if request.user.is_authenticated():
-#        cart= cart.objects.get(user=request.user.id)
-#        orders= bookorder.objects.filter(cart=cart)
-#        total = 0
-#        for order in orders:
-#            total += (order.book.b_price * order.quantity)
-#        message= "Success! Your order has been completed, and is being processed. Transaction made : $%s" %(total)
-#        cart.order_date= timezone.now()
-#        cart.save()
-#       context = {
-#            'message': message,
-#        }
-#        return render (request, 'purchase.html',context)
-#    else:
-#        return redirect('buyer')
+def complete_order(request):
+    message= "Success! Your order has been completed"
+    context = {'message': message}
+    return render (request, 'purchase.html',context)
+    
 
 
