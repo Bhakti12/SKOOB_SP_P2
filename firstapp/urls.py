@@ -1,6 +1,9 @@
 from django.urls import path
 
 from . import views
+from django.conf import settings
+from django.conf.urls.static import static
+
 
 urlpatterns=[
 	path("",views.index, name="index"),
@@ -19,7 +22,10 @@ urlpatterns=[
 	path('Home_seller', views.Home_seller , name="Home_seller"),
 	path('Home_buyer', views.Home_Buyer , name="Home_Buyer"),
 	path('add_book', views.bookform , name="add_book"),
-	#path('delete-book/<int:id>', views.deleteBook , name="delete-book"),
-	#path('edit-book<int:id>', views.editBook , name="edit-book"),
-	path('storebook', views.storebook, name="storebook"),	
+	path('delete_book/<id>', views.delete_view , name="delete_book"),
+	#path('edit-book/<id>', views.edit_view , name="edit-book"),
+	path('seller', views.storebook, name="seller"),	
 ]
+if settings.DEBUG:
+        urlpatterns += static(settings.MEDIA_URL,
+                              document_root=settings.MEDIA_ROOT)

@@ -14,11 +14,11 @@ def requiredregister(view_func):
 
 	return wrapper_func
 
-def allowed_users(allowed_roles=[]):
-	def decorator(view_func):
-		def wrapper_func(request, *args, **kwargs):
+#def allowed_users(allowed_roles=[]):
+#	def decorator(view_func):
+#		def wrapper_func(request, *args, **kwargs):
 
-			print('working:', allowed_roles)
-			return view_func(request, *args, **kwargs)
-		return wrapper_func
-	return decorator
+#			print('working:', allowed_roles)
+#			return view_func(request, *args, **kwargs)
+#		return wrapper_func
+#	return decorator

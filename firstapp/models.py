@@ -1,16 +1,18 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.utils import OperationalError
+#from django.conf import settings
 
 # Create your models here.
 class books(models.Model):
+	user=models.OneToOneField(User, on_delete=models.CASCADE, null=True, default=None)
 	b_name = models.CharField(max_length=100)
 	b_category = models.CharField(max_length=100)
 	b_author = models.CharField(max_length=100)
 	b_user = models.CharField(max_length=100)
 	b_price = models.IntegerField()
 	b_edition = models.CharField(max_length=100)
-	b_image = models.ImageField(upload_to='images' , default=False)
+	b_image = models.ImageField(upload_to='static/images/' , default=False)
 	class Meta:
 		db_table="books"
 

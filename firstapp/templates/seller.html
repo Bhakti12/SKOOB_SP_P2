@@ -104,12 +104,11 @@
                                             </td>-->
                                         
                                             <td>
-                                                <img src="{% static book.b_image %}" alt="" class="prod-size">
+                                                <img src="{% static book.b_image.url %}" alt="" class="prod-size">
                                             </td>
                                         
                                         <td>
-                                            <a href="EditBook" class="btn btn-danger badge">Edit</a>
-                                            <a href="DeleteBook" class="btn btn-danger badge">Delete</a>
+                                            <a href="delete_book/{{book.id}}" class="btn btn-danger badge">Delete</a>
                                         </td>
                                     </tr>
                                 {% endfor %}
